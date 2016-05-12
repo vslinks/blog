@@ -84,18 +84,32 @@
                 <li>
                     <a href="{:U('Brand/index')}">
                         <i class="fa fa-home"></i>
+                        <span class="nav-label">品牌管理</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="{:U('Brand/index')}">品牌列表</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="{:U('Brand/add')}">添加品牌</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{:U('GoodsCategory/index')}">
+                        <i class="fa fa-home"></i>
                         <span class="nav-label">商品分类管理</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="{:U('Brand/index')}">商品列表</a>
+                            <a class="J_menuItem" href="{:U('GoodsCategory/index')}">商品分类列表</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="{:U('Brand/add')}">添加商品</a>
+                            <a class="J_menuItem" href="{:U('GoodsCategory/add')}">添加商品分类</a>
                         </li>
                     </ul>
-
                 </li>
                 <li>
                     <a href="{:U('Article/index')}">

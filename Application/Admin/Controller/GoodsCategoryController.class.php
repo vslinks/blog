@@ -64,8 +64,8 @@ class GoodsCategoryController extends Controller
                 //>>数据获取失败
                 $this->error($this->_model->getError());
             }
-            //>>取得数据,进行添加操作 并判断添加是否成功
-            if($this->_model->add() === false){
+            //>>取得数据,调用addZtree自定义方法进行添加操作 并判断添加是否成功
+            if($this->_model->addZtree() === false){
                 //>> 添加失败
                 $this->error($this->_model->getError());
             }
@@ -89,8 +89,42 @@ class GoodsCategoryController extends Controller
         //>>判断是否有post提交,
         if(IS_POST){
             //>>进行修改操作
+            if($this->_model->create() === false){
+                //>>获取数据错误, 提示跳转
+                $this->error($this->_model->getError());
+            }
+            //>>获取数据成功 ,调用方法进行修改
+            if($this->_model->editZtree() === false){
+                //>>修改失败
+                $this->error($this->_model->getError());
+            }
+            //>>修改成功
+            $this->success('修改成功',U('index'));
         }else{
             //>>展示修改页面,并回显数据
+            $row = $this->_model->find(I('get.id'));
+            $this->assign('row',$row);
+            //>>获取所有分类列表
+            $rows = $this->_model->getZtreeList();
+            //>>赋值数据到模板
+            $this->assign('rows',json_encode($rows));
+
+            //>>渲染添加页面视图
+            $this->display('add');
         }
+    }
+
+    /**
+     * 删除操作
+     */
+    public function delete(){
+        //>.调用方法删除
+        $result = $this->_model->deleteZtree(I('get.id'));
+        if($result === false){
+            //>>删除失败
+            $this->error($this->_model->getError());
+        }
+        //>>删除成功
+        $this->success('删除成功',U('index'));
     }
 }

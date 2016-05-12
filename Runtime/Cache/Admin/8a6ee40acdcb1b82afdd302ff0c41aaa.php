@@ -95,7 +95,7 @@
             "swf"  :   'http://vslinks.shop.com/Public/Admin/ext/uploadify/uploadify.swf',  //指定上传插件的主体文件.
             "uploader"  :  '<?php echo U("Upload/upload");?>',       // 指定服务器上的处理文件
             "auto"   :  true,    //>>  auto  设为true  当文件被添加到上传队列时会自动上传
-            "buttonText"   :   '请选择图片' ,  //  定义选择控件上显示 的文件
+            "buttonText"   :   '请选择图片' ,  //  定义选择控件上显示 的文字
             "fileSizeLimit" : '2000000KB',  //  允许上传的文件大小限制
             "fileTypeExts"  :  '*.gif;*.png;*.jpg;*.jpeg;*.bmp',//允许上传的文件后缀
             "removeTimeout" :  3,  //>>上传成功后的等待时间自动关闭.
